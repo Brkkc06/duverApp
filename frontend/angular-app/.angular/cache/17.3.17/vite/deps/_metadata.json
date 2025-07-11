@@ -1,0 +1,43 @@
+{
+  "hash": "b936567d",
+  "configHash": "d0457fab",
+  "lockfileHash": "591bd76e",
+  "browserHash": "bd5f0f49",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "9011288c",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "4688fd34",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "8950449a",
+      "needsInterop": false
+    },
+    "primeng/button": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-button.mjs",
+      "file": "primeng_button.js",
+      "fileHash": "a8b8e66f",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-E2QEWDXJ": {
+      "file": "chunk-E2QEWDXJ.js"
+    },
+    "chunk-LAVYWHII": {
+      "file": "chunk-LAVYWHII.js"
+    },
+    "chunk-GSEU53OH": {
+      "file": "chunk-GSEU53OH.js"
+    }
+  }
+}
