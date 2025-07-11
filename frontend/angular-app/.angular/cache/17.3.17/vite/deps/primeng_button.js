@@ -5,7 +5,7 @@ import {
   NgStyle,
   NgTemplateOutlet,
   isPlatformBrowser
-} from "./chunk-LAVYWHII.js";
+} from "./chunk-QHALDMLH.js";
 import {
   ChangeDetectionStrategy,
   Component,
