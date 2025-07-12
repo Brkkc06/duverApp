@@ -1,0 +1,89 @@
+::ng-deep .sign-in-button .p-button {
+  background-color: #dddddd;
+  color: rgb(63, 62, 62);
+  border-radius: 4px;
+  border-color: #dddddd;
+  transition: all 0.3s ease;
+  margin: 10px;
+  cursor: not-allowed; /* devre dışı görünümünü kaldırmak için bunlar sil*/
+  opacity: 0.3; /* devre dışı görünümünü kaldırmak için bunlar sil*/
+  filter: grayscale(70%); /* devre dışı görünümünü kaldırmak için bunlar sil*/
+}
+::ng-deep .sign-in-button .p-button:hover {
+  background-color: #a5a4a4;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+::ng-deep .log-in-button .p-button {
+  background-color: #0059ff;
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  border-color: #0059ff;
+  transition: all 0.3s ease;
+  margin: 10px;
+  cursor: not-allowed; /* devre dışı görünümünü kaldırmak için bunlar sil*/
+  opacity: 0.3; /* devre dışı görünümünü kaldırmak için bunlar sil*/
+  filter: grayscale(70%); /* devre dışı görünümünü kaldırmak için bunlar sil*/
+}
+
+::ng-deep .log-in-button .p-button:hover {
+  background-color: #051be2;
+  color: rgb(187, 187, 187);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+::ng-deep .calculate-button .p-button {
+  background-color: #fcc404;
+  color: rgb(32, 32, 32);
+  border-color: #ffd000;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin: 10px;
+}
+::ng-deep .calculate-button .p-button:hover {
+  background-color: #c4a10a;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.homepage-top {
+  color: #f71811e3;
+  background-color: #f71811e3;
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  text-align: left;
+  align-items: center;
+  justify-content: left;
+  display: flex;
+}
+.homepage-duver-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f71811e3;
+  text-align: center;
+  margin-top: 20px;
+}
+.homepage-welcome-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.homepage-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  background-color: #121212;
+}
+.homepage-top-duver-title {
+  color: #000000;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.homepage-top-app-title {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
