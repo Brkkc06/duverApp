@@ -1,39 +1,50 @@
 <div class="homepage-top">
-  <span class="homepage-top-duver-title">Duver</span>
-  <span class="homepage-top-app-title">App</span>
+  <div class="homepage-top-duver-title">
+    Duver<span class="homepage-top-app-title">App</span>
+  </div>
 </div>
-<div class="homepage-div" style="height: 100vh">
-  <div style="text-align: center">
-    <h1>
-      <span class="homepage-welcome-title">Welcome to </span>
-      <span class="homepage-duver-title">Duver</span>
-      <span class="homepage-app-subtitle">App</span>
-    </h1>
 
-    <span pTooltip="Coming Soon" tooltipPosition="bottom">
+<div class="homepage-main-container">
+  <div class="homepage-div-left">
+    <div class="homepage-left-content">
+      <h1 class="homepage-welcome-title">
+        Welcome to<br />
+        <span class="homepage-duver-title">DuverApp</span>
+      </h1>
+
+      <span pTooltip="Coming Soon" tooltipPosition="bottom">
+        <p-button
+          label="Sign In"
+          class="sign-in-button"
+          [raised]="true"
+          severity="warning"
+        />
+      </span>
+
+      <span pTooltip="Coming Soon" tooltipPosition="bottom">
+        <p-button
+          label="Log In"
+          class="log-in-button"
+          [raised]="true"
+          severity="danger"
+        />
+      </span>
+
       <p-button
-        label="Sign In"
+        label="Calculate"
+        class="calculate-button"
         [raised]="true"
-        severity="warning"
-        class="sign-in-button"
-        routerLink="/home"
+        severity="contrast"
       />
-    </span>
+    </div>
+  </div>
 
-    <span pTooltip="Coming Soon" tooltipPosition="bottom"
-      ><p-button
-        label="Log In"
-        [raised]="true"
-        severity="danger"
-        class="log-in-button"
-        routerLink="/home"
-    /></span>
+<div class="homepage-divider"></div>
 
-    <p-button
-      label="Calculate"
-      [raised]="true"
-      severity="contrast"
-      class="calculate-button"
-    />
+  <div class="homepage-div-right">
+    <div class="homepage-right-content">
+      sağ tarafffffffffff<br />
+      içeriği
+    </div>
   </div>
 </div>
