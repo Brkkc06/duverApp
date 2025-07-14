@@ -7,7 +7,7 @@ import {
   PrimeTemplate,
   SharedModule,
   UniqueComponentId
-} from "./chunk-6O65MMD4.js";
+} from "./chunk-FVLZ4FNL.js";
 import {
   DOCUMENT,
   NgClass,

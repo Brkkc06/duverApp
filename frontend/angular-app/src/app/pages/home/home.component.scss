@@ -1,7 +1,9 @@
 :host {
   display: block;
-  height: 100vh;
-  overflow: hidden;
+  height: 88.55vh;
+  overflow: visible;
+  /* Tüm metinlere uygulanan renk */
+  color: #eeeeee;
 }
 
 @media (min-width: 769px) {
@@ -38,10 +40,11 @@
   text-align: center;
 }
 
+/* Başlık renkleri artık inherit edecek, ama istenirse özel ton da verilebilir */
 .homepage-welcome-title {
   font-size: 3.5rem;
   font-weight: bold;
-  color: #fff;
+  /* color: #EEEEEE; inherit edildi */
   line-height: 1.2;
   margin-bottom: 1rem;
   opacity: 0;
@@ -52,6 +55,7 @@
 .homepage-duver-title {
   font-size: 3rem;
   font-weight: bold;
+  /* inherit #EEEEEE */
   opacity: 0;
   animation: fadeInUp 1.2s ease-out forwards;
   animation-delay: 0.4s;
@@ -92,13 +96,6 @@
   animation-delay: 1s;
 }
 
-/* Hover efekt */
-::ng-deep .join-now-button .p-button:hover,
-::ng-deep .calculate-button .p-button:hover {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-  transform: scale(1.02);
-}
-
 /* Buton genel stili */
 ::ng-deep .join-now-button .p-button,
 ::ng-deep .calculate-button .p-button {
@@ -109,12 +106,12 @@
   transition: all 0.3s ease;
 }
 
-/* Buton renkleri */
+/* Buton renkleri (#00ADB5) ve metin rengi #EEEEEE */
 ::ng-deep .join-now-button .p-button {
-  background-color: #f71811e3;
+  background-color: #00adb5;
+  border-color: #00adb5;
   font-weight: 300 !important;
-  color: rgb(255, 255, 255);
-  border-color: #f71811e3;
+  color: #eeeeee;
   cursor: not-allowed;
   opacity: 0.3;
   filter: grayscale(70%);
@@ -122,23 +119,21 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-
 ::ng-deep .calculate-button .p-button {
-  background-color: #fcc404;
-  color: #202020;
-  border-color: #ffd000;
+  background-color: #00adb5;
+  border-color: #00adb5;
+  color: #eeeeee;
   transition: background-color 0.3s ease, color 0.3s ease;
-  margin-top: 42.2px;
+  margin-top: 37.3px;
 }
 
-::ng-deep .join-now-button .p-button:hover {
-  background-color: #ff2f2fe3;
-  color: rgb(0, 0, 0);
-}
+/* Hover efekt (#008A99) */
+::ng-deep .join-now-button .p-button:hover,
 ::ng-deep .calculate-button .p-button:hover {
-  background-color: #c4a10a;
-  color: #000;
+  background-color: #008a99;
+  color: #eeeeee;
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);
 }
 
 /* Sağ içerik */
@@ -154,6 +149,7 @@
   font-size: 1.5rem;
   text-align: left;
   word-spacing: 3px;
+  color: #eeeeee;
 }
 
 /* Animasyonlar */

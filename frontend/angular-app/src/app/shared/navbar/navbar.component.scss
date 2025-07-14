@@ -1,5 +1,5 @@
 .navbar-container {
-  background-color: #0d1117;
+  background-color: #222831;
   height: 80px;
   width: 100%;
   position: relative;
@@ -59,23 +59,7 @@
 }
 
 /* Buton */
-::ng-deep .log-in-button .p-button {
-  background-color: #0059ff;
-  color: #fff;
-  border-color: #0059ff;
-  cursor: not-allowed;
-  opacity: 0.3;
-  filter: grayscale(70%);
-  font-weight: 500;
-  border-radius: 6px;
-  padding: 0.5rem 1.2rem;
-  transition: all 0.3s ease;
-}
 
-::ng-deep .log-in-button .p-button:hover {
-  background-color: #003ccc;
-  color: #ddd;
-}
 
 /* Animasyonlar */
 @keyframes fadeInNavbar {
@@ -123,9 +107,9 @@
   .navbar-right {
     justify-content: flex-end;
   }
-
-  ::ng-deep .log-in-button .p-button {
-    font-size: 0.9rem;
-    padding: 0.4rem 1rem;
-  }
+}
+.log-in-button{
+  color: #EEEEEE;
+  border-bottom: 1px solid #00ADB5;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
