@@ -1,52 +1,67 @@
 {
-  "hash": "bb6f4f28",
-  "configHash": "cf07fcd2",
+  "hash": "ef7013b9",
+  "configHash": "cb6b4acd",
   "lockfileHash": "591bd76e",
-  "browserHash": "a44dba10",
+  "browserHash": "2db5f43f",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "42711d80",
+      "fileHash": "c5a5b9c9",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "55205587",
+      "fileHash": "2318c452",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "ed7af7fa",
+      "fileHash": "f8c5eb87",
       "needsInterop": false
     },
     "primeng/button": {
       "src": "../../../../../node_modules/primeng/fesm2022/primeng-button.mjs",
       "file": "primeng_button.js",
-      "fileHash": "596c58c1",
+      "fileHash": "27500fed",
       "needsInterop": false
     },
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "7131c2ec",
+      "fileHash": "30fb4652",
       "needsInterop": false
     },
     "primeng/tooltip": {
       "src": "../../../../../node_modules/primeng/fesm2022/primeng-tooltip.mjs",
       "file": "primeng_tooltip.js",
-      "fileHash": "b352c567",
+      "fileHash": "c9a61e8d",
+      "needsInterop": false
+    },
+    "primeng/toolbar": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-toolbar.mjs",
+      "file": "primeng_toolbar.js",
+      "fileHash": "88183b69",
+      "needsInterop": false
+    },
+    "primeng/api": {
+      "src": "../../../../../node_modules/primeng/fesm2022/primeng-api.mjs",
+      "file": "primeng_api.js",
+      "fileHash": "dc6bfeed",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-4QXAINGS": {
-      "file": "chunk-4QXAINGS.js"
-    },
     "chunk-Y3YCX2FO": {
       "file": "chunk-Y3YCX2FO.js"
+    },
+    "chunk-JZQAVOZS": {
+      "file": "chunk-JZQAVOZS.js"
+    },
+    "chunk-6O65MMD4": {
+      "file": "chunk-6O65MMD4.js"
     },
     "chunk-QHALDMLH": {
       "file": "chunk-QHALDMLH.js"

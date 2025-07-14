@@ -1,11 +1,13 @@
 import {
-  DomHandler,
+  DomHandler
+} from "./chunk-JZQAVOZS.js";
+import {
   ObjectUtils,
   PrimeNGConfig,
   PrimeTemplate,
   SharedModule,
   UniqueComponentId
-} from "./chunk-4QXAINGS.js";
+} from "./chunk-6O65MMD4.js";
 import {
   DOCUMENT,
   NgClass,

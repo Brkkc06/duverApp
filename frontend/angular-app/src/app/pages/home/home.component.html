@@ -1,25 +1,10 @@
-<div class="homepage-top">
-  <div class="homepage-top-duver-title">
-    Duver<span class="homepage-top-app-title">App</span>
-  </div>
-</div>
-
 <div class="homepage-main-container">
   <div class="homepage-div-left">
     <div class="homepage-left-content">
       <h1 class="homepage-welcome-title">
         Welcome to<br />
-        <span class="homepage-duver-title">DuverApp</span>
+        <span class="homepage-duver-title cl-red">DuverApp</span>
       </h1>
-
-      <span pTooltip="Coming Soon" tooltipPosition="bottom">
-        <p-button
-          label="Sign In"
-          class="sign-in-button"
-          [raised]="true"
-          severity="warning"
-        />
-      </span>
 
       <span pTooltip="Coming Soon" tooltipPosition="bottom">
         <p-button
@@ -27,7 +12,8 @@
           class="log-in-button"
           [raised]="true"
           severity="danger"
-        />
+          icon="pi pi-sign-in"
+        ></p-button>
       </span>
 
       <p-button
@@ -35,16 +21,29 @@
         class="calculate-button"
         [raised]="true"
         severity="contrast"
-      />
+        icon="pi pi-calculator"
+      ></p-button>
     </div>
   </div>
 
-<div class="homepage-divider"></div>
+  <div class="homepage-divider"></div>
 
   <div class="homepage-div-right">
     <div class="homepage-right-content">
-      sağ tarafffffffffff<br />
-      içeriği
+      <p class="homepage-description">
+        DuverApp helps you easily calculate your dining expenses at Düveroğlu.
+        With just a few clicks, you can track what you’ve eaten, see what you
+        owe, and review your past visits with personalized insights.
+      </p>
+      <span pTooltip="Coming Soon" tooltipPosition="bottom">
+        <p-button
+          label="Join Now"
+          class="join-now-button"
+          [raised]="true"
+          severity="warning"
+          icon="pi pi-user-plus"
+        ></p-button>
+      </span>
     </div>
   </div>
 </div>

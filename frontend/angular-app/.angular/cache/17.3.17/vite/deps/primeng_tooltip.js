@@ -1,10 +1,12 @@
 import {
   ConnectedOverlayScrollHandler,
-  DomHandler,
+  DomHandler
+} from "./chunk-JZQAVOZS.js";
+import {
   PrimeNGConfig,
   UniqueComponentId,
   zindexutils
-} from "./chunk-4QXAINGS.js";
+} from "./chunk-6O65MMD4.js";
 import {
   CommonModule,
   isPlatformBrowser

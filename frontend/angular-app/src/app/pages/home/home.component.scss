@@ -4,17 +4,21 @@
   overflow: hidden;
 }
 
-/* Ana yapıyı ayarlıyoruz */
+@media (min-width: 769px) {
+  :host {
+    overflow: hidden;
+  }
+}
+
 .homepage-main-container {
   display: flex;
   flex-direction: row;
   height: 90vh;
   width: 100%;
   overflow: hidden;
-  position: relative; /* çizgiyi konumlandırabilmek için */
+  position: relative;
 }
 
-/* Sol taraf */
 .homepage-div-left,
 .homepage-div-right {
   width: 50%;
@@ -23,12 +27,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #121212;
-  font-family: "Poppins", sans-serif;
+  font-family: "Arial", sans-serif;
   box-sizing: border-box;
 }
 
-/* İçerik ortalama */
 .homepage-left-content,
 .homepage-right-content {
   width: 100%;
@@ -36,49 +38,73 @@
   text-align: center;
 }
 
-/* Üst başlık */
-.homepage-top {
-  background-color: #080c14;
-  width: 100%;
-  height: 10%;
-  margin: 0;
-  text-align: center;
-  align-items: center;
-  justify-content: left-start;
-  display: flex;
-}
-
-.homepage-top-duver-title {
-  font-family: "Gill Sans", sans-serif;
-  color: #ffffff;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.homepage-top-app-title {
-  font-family: "Gill Sans", sans-serif;
-  color: #f71811e3;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-/* Hoş geldin başlığı */
 .homepage-welcome-title {
   font-size: 2.5rem;
   font-weight: bold;
   color: #fff;
   line-height: 1.2;
   margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+  animation-delay: 0.2s;
 }
 
 .homepage-duver-title {
   font-size: 3rem;
   font-weight: bold;
-  color: #f71811e3;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+  animation-delay: 0.4s;
 }
 
-/* Butonlar */
-::ng-deep .sign-in-button .p-button,
+.homepage-divider {
+  width: 2px;
+  height: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(10deg);
+  transform-origin: center;
+  z-index: 5;
+  animation: drawLine 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* Butonlar - Yeni animasyonla */
+.join-now-button,
+.log-in-button,
+.calculate-button {
+  opacity: 0;
+  animation: scaleFadeIn 0.8s ease-out forwards;
+}
+
+.join-now-button {
+  animation-delay: 0.6s;
+}
+.log-in-button {
+  animation-delay: 0.8s;
+}
+.calculate-button {
+  animation-delay: 1s;
+}
+
+/* Hover efekt */
+::ng-deep .join-now-button .p-button:hover,
+::ng-deep .log-in-button .p-button:hover,
+::ng-deep .calculate-button .p-button:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  transform: scale(1.02);
+}
+
+/* Buton genel stili */
+::ng-deep .join-now-button .p-button,
 ::ng-deep .log-in-button .p-button,
 ::ng-deep .calculate-button .p-button {
   width: 100%;
@@ -88,19 +114,17 @@
   transition: all 0.3s ease;
 }
 
-::ng-deep .sign-in-button .p-button {
-  background-color: #dddddd;
-  color: rgb(63, 62, 62);
-  border-color: #dddddd;
+/* Buton renkleri */
+::ng-deep .join-now-button .p-button {
+  background-color: #f71811e3;
+  font-weight: 300 !important;
+  color: rgb(255, 255, 255);
+  border-color: #f71811e3;
   cursor: not-allowed;
   opacity: 0.3;
   filter: grayscale(70%);
-}
-
-::ng-deep .sign-in-button .p-button:hover {
-  background-color: #a5a4a4;
-  color: rgb(0, 0, 0);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::ng-deep .log-in-button .p-button {
@@ -110,24 +134,87 @@
   cursor: not-allowed;
   opacity: 0.3;
   filter: grayscale(70%);
-}
-
-::ng-deep .log-in-button .p-button:hover {
-  background-color: #051be2;
-  color: #bbb;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::ng-deep .calculate-button .p-button {
   background-color: #fcc404;
   color: #202020;
   border-color: #ffd000;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+::ng-deep .join-now-button .p-button:hover {
+  background-color: #ff2f2fe3;
+  color: rgb(0, 0, 0);
+}
+::ng-deep .log-in-button .p-button:hover {
+  background-color: #051be2;
+  color: #bbb;
+}
 ::ng-deep .calculate-button .p-button:hover {
   background-color: #c4a10a;
   color: #000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Sağ içerik */
+.homepage-right-content {
+  opacity: 0;
+  animation: fadeInRight 1.2s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+/* Açıklama metni */
+.homepage-description {
+  font-family: "Arial", sans-serif;
+  font-size: 1.5rem;
+  text-align: left;
+  word-spacing: 3px;
+}
+
+/* Animasyonlar */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawLine {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 90%;
+    opacity: 1;
+  }
+}
+
+@keyframes scaleFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Responsive */
@@ -136,11 +223,11 @@
     flex-direction: column;
     height: auto;
   }
-  @media (max-width: 768px) {
-    .homepage-divider {
-      display: none;
-    }
+
+  .homepage-divider {
+    display: none;
   }
+
   .homepage-div-left,
   .homepage-div-right {
     width: 100%;
@@ -161,18 +248,7 @@
     font-size: 2.5rem;
   }
 
-  .homepage-top {
-    flex-direction: column;
-    padding: 0.5rem 0;
-    height: auto;
-  }
-
-  .homepage-top-duver-title,
-  .homepage-top-app-title {
-    font-size: 1.5rem;
-  }
-
-  .sign-in-button,
+  .join-now-button,
   .log-in-button,
   .calculate-button {
     width: 100%;
@@ -185,23 +261,4 @@
     word-break: break-word;
     font-size: 1rem;
   }
-}
-.homepage-divider {
-  width: 2px;
-  background-color: #ffffff33; /* beyaz + transparan çizgi */
-  height: 90%;
-  transform: translate(-50%, -50%) rotate(10deg); /* ✅ sağa eğim */
-  transform-origin: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: center;
-  z-index: 5;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
 }
