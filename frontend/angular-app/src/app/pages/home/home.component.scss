@@ -79,7 +79,6 @@
 
 /* Butonlar - Yeni animasyonla */
 .join-now-button,
-.log-in-button,
 .calculate-button {
   opacity: 0;
   animation: scaleFadeIn 0.8s ease-out forwards;
@@ -88,16 +87,13 @@
 .join-now-button {
   animation-delay: 0.6s;
 }
-.log-in-button {
-  animation-delay: 0.8s;
-}
+
 .calculate-button {
   animation-delay: 1s;
 }
 
 /* Hover efekt */
 ::ng-deep .join-now-button .p-button:hover,
-::ng-deep .log-in-button .p-button:hover,
 ::ng-deep .calculate-button .p-button:hover {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
   transform: scale(1.02);
@@ -105,7 +101,6 @@
 
 /* Buton genel stili */
 ::ng-deep .join-now-button .p-button,
-::ng-deep .log-in-button .p-button,
 ::ng-deep .calculate-button .p-button {
   width: 100%;
   max-width: 300px;
@@ -127,30 +122,19 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-::ng-deep .log-in-button .p-button {
-  background-color: #0059ff;
-  color: #fff;
-  border-color: #0059ff;
-  cursor: not-allowed;
-  opacity: 0.3;
-  filter: grayscale(70%);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+
 
 ::ng-deep .calculate-button .p-button {
   background-color: #fcc404;
   color: #202020;
   border-color: #ffd000;
   transition: background-color 0.3s ease, color 0.3s ease;
+  
 }
 
 ::ng-deep .join-now-button .p-button:hover {
   background-color: #ff2f2fe3;
   color: rgb(0, 0, 0);
-}
-::ng-deep .log-in-button .p-button:hover {
-  background-color: #051be2;
-  color: #bbb;
 }
 ::ng-deep .calculate-button .p-button:hover {
   background-color: #c4a10a;
@@ -249,7 +233,6 @@
   }
 
   .join-now-button,
-  .log-in-button,
   .calculate-button {
     width: 100%;
     max-width: 300px;
