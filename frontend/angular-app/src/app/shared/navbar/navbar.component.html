@@ -18,7 +18,14 @@
     <!-- Sağ bölüm: Şu an sadece Log In butonu -->
     <div class="navbar-right">
       <span pTooltip="Coming Soon" tooltipPosition="bottom">
-       <p-button label="Sign in" [link]="true" class="log-in-button"/>
+        <p-button
+          label="Sign in"
+          [link]="true"
+          styleClass="sign-in-button"
+          [style]="{ color: '#EEEEEE' }"
+          icon="pi pi-sign-in"
+          class="sign-in-button"
+        ></p-button>
       </span>
     </div>
   </div>

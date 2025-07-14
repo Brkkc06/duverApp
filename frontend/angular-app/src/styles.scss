@@ -6,6 +6,12 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --text-color: #eeeeee;
+  --bg-color: #393e46;
+  --primary-color: #f71811;
+  --secondary-color: #0059ff;
+}
 .duver-icon-medium {
   width: 60px;
   height: 60px;
