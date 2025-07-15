@@ -1,0 +1,118 @@
+<div class="card-container">
+  <p-card class="calculate-card">
+    <!-- Başlık -->
+    <ng-template pTemplate="header">
+      <div class="card-header">Calculate</div>
+    </ng-template>
+
+    <!-- Kişi seçimi -->
+    <div class="person-select">
+      <p-dropdown placeholder="Kişi"></p-dropdown>
+    </div>
+    <hr class="divider" />
+
+    <!-- Ana grid: 5×3 -->
+    <div class="grid-main">
+      <!-- Yiyecek -->
+      <div><p-dropdown placeholder="Yiyecek"></p-dropdown></div>
+      <div class="qty-col">
+        <button class="p-button p-button-icon-only">
+          <i class="pi pi-minus"></i>
+        </button>
+        <span>1</span>
+        <button class="p-button p-button-icon-only">
+          <i class="pi pi-plus"></i>
+        </button>
+      </div>
+      <div>
+        <input
+          pInputText
+          type="text"
+          [value]=""
+          readonly
+          placeholder="0.00"
+          class="price-output"
+        />
+      </div>
+
+      <!-- İçecek -->
+      <div><p-dropdown placeholder="İçecek"></p-dropdown></div>
+      <div class="qty-col">
+        <button class="p-button p-button-icon-only">
+          <i class="pi pi-minus"></i>
+        </button>
+        <span>1</span>
+        <button class="p-button p-button-icon-only">
+          <i class="pi pi-plus"></i>
+        </button>
+      </div>
+      <div>
+        <input
+          pInputText
+          type="text"
+          [value]=""
+          readonly
+          placeholder="0.00"
+          class="price-output"
+        />
+      </div>
+
+      <!-- Tatlı -->
+      <div><p-dropdown placeholder="Tatlı"></p-dropdown></div>
+      <div class="qty-col">
+        <button class="p-button p-button-icon-only">
+          <i class="pi pi-minus"></i>
+        </button>
+        <span>1</span>
+        <button class="p-button p-button-icon-only">
+          <i class="pi pi-plus"></i>
+        </button>
+      </div>
+      <div>
+        <input
+          pInputText
+          type="text"
+          [value]=""
+          readonly
+          placeholder="0.00"
+          class="price-output"
+        />
+      </div>
+
+      <!-- Bahşiş -->
+      <div class="label-col tip-div"><span>Bahşiş:</span></div>
+      <div class="input-div">
+        <input type="number" placeholder="Miktar" class="p-inputtext" />
+      </div>
+      <div>
+        <input
+          pInputText
+          type="text"
+          [value]=""
+          readonly
+          placeholder="0.00"
+          class="price-output"
+        />
+      </div>
+
+      <!-- Hesapla butonu -->
+      <div></div>
+      <div class="btn-calc-col">
+        <button pButton label="Hesapla" class="p-button-success"></button>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- Hesapla’dan sonra boşluklu çizgi -->
+    <hr class="divider divider-after-calc" />
+
+    <!-- Alt footer -->
+    <div class="grid-footer">
+      <div>
+        <button pButton label="Kaydet" class="p-button-primary w-full"></button>
+      </div>
+      <div class="footer-center"><strong>TOPLAM:</strong></div>
+      <div class="footer-right"><span>₺</span></div>
+    </div>
+  </p-card>
+</div>

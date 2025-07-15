@@ -7,9 +7,24 @@ import { ButtonModule } from 'primeng/button'; // Importing ButtonModule from Pr
 import { TooltipModule } from 'primeng/tooltip';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ToolbarModule } from 'primeng/toolbar';
+import { CalculateComponent } from './pages/calculate/calculate.component';
+import { CardModule } from 'primeng/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DropdownModule } from 'primeng/dropdown';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
-  imports: [BrowserModule, AppRoutingModule, ButtonModule, TooltipModule,ToolbarModule],
+  declarations: [AppComponent, NavbarComponent, CalculateComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    ButtonModule,
+    TooltipModule,
+    ToolbarModule,
+    CardModule,
+    DropdownModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
