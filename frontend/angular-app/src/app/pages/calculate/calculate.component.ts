@@ -59,7 +59,7 @@ export class CalculateComponent implements OnInit {
     { id: 1, name: 'Mercimek Çorbası', price: 120 },
     { id: 2, name: 'Ezogelin Çorbası', price: 120 },
     { id: 3, name: 'Antep Lahmacun', price: 190 },
-    { id: 4, name: 'Lahmacun', price: 170 },
+    { id: 4, name: 'Lahmacun', price: 180 },
     { id: 5, name: 'Döner', price: 440 },
     { id: 6, name: 'Pilav Üstü Döner', price: 460 },
     { id: 7, name: 'Tavuk Şiş', price: 430 },
@@ -121,7 +121,7 @@ export class CalculateComponent implements OnInit {
         dessert: [1, [Validators.required, Validators.min(1)]],
       }), 
       total: [0, [Validators.required, Validators.min(0)]],
-      amount: [0, [Validators.required, Validators.min(0)]],  
+      amount: [null, [Validators.required, Validators.min(0)]],  
     })
     const firstCard: CardModel = {
       id: 1, 
@@ -162,7 +162,7 @@ export class CalculateComponent implements OnInit {
         drink: [null, Validators.required],
         dessert: [null, Validators.required],
         total: [0, [Validators.required, Validators.min(0)]],
-        amount: [0, [Validators.required, Validators.min(0)]],
+        amount: [null, [Validators.required, Validators.min(0)]],
       }),
       qty: { food: 1, drink: 1, dessert: 1 },
       amount: 0,

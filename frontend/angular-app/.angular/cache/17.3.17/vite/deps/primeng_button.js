@@ -2,10 +2,15 @@ import {
   AutoFocus,
   Ripple,
   SpinnerIcon
-} from "./chunk-M34LBEKI.js";
+} from "./chunk-NBZD4MR5.js";
 import {
   DomHandler
 } from "./chunk-JZQAVOZS.js";
+import {
+  ObjectUtils,
+  PrimeTemplate,
+  SharedModule
+} from "./chunk-U4NVJR73.js";
 import {
   DOCUMENT,
   NgClass,
@@ -13,11 +18,6 @@ import {
   NgStyle,
   NgTemplateOutlet
 } from "./chunk-ZQGI3ZYG.js";
-import {
-  ObjectUtils,
-  PrimeTemplate,
-  SharedModule
-} from "./chunk-U4NVJR73.js";
 import {
   ChangeDetectionStrategy,
   Component,

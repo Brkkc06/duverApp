@@ -2,14 +2,14 @@ import {
   DomHandler
 } from "./chunk-JZQAVOZS.js";
 import {
-  DOCUMENT,
-  isPlatformBrowser
-} from "./chunk-ZQGI3ZYG.js";
-import {
   ObjectUtils,
   PrimeNGConfig,
   UniqueComponentId
 } from "./chunk-U4NVJR73.js";
+import {
+  DOCUMENT,
+  isPlatformBrowser
+} from "./chunk-ZQGI3ZYG.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -459,4 +459,4 @@ export {
   Ripple,
   RippleModule
 };
-//# sourceMappingURL=chunk-M34LBEKI.js.map
+//# sourceMappingURL=chunk-NBZD4MR5.js.map

@@ -5,11 +5,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 :root {
   --text-color: #eeeeee;
   --bg-color: #393e46;
-  --primary-color: #f71811;
+  --red-color: #f71811;
   --secondary-color: #0059ff;
   --navbar-color: #222831;
   --btn-color: #00adb5;
