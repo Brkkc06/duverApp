@@ -172,6 +172,17 @@
    <p-button icon="pi pi-plus" class="add-card-button" (click)="addCard()"></p-button>
   </div>
 </div>
-
+</div>
+<div class="calculate-divider"></div>
+<div class="calculate-bottom">
+  <span class="total-header" style="display: flex; align-items: center; text-align: center; height: 40px;">Toplam Tutar:</span>
+  <input
+    pInputText
+    type="text"
+    [value]="total | number:'1.2-2'"
+    readonly
+    placeholder="0.00"
+    class="price-output total-price"/>
+  <span class="currency" style="display: flex; text-align: center; height: 40px; align-items: center;">₺</span>
 </div>
 

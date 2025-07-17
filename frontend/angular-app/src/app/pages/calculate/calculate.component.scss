@@ -1,6 +1,5 @@
 :host {
   display: block;
-  min-height: 88.5vh;
   background-color: var(--bg-color);
 }
 
@@ -191,6 +190,7 @@
 }
 .price-output {
   max-width: 40px; /* veya 160-180px gibi istediğin kadar */
+  max-height: 40px;
   text-align: left;
   font-size: 1rem;
   font-weight: bold;
@@ -201,6 +201,10 @@
   outline: none;
   color: var(--text-color);
   padding: 0;
+  @media only  screen and (max-width: 600px) {
+    font-size: 0.75rem; /* Mobilde biraz daha büyük yazı */
+    text-align: center;
+  }
 }
 .tip-div {
   align-items: center;
@@ -226,4 +230,41 @@
 ::ng-deep .add-card-button .pi-plus {
   font-size: 50px;
   color: var(--text-color);
+}
+::ng-deep .calculate-bottom{
+  display: flex;
+  min-height: 7vh;
+  background-color: var(--navbar-color);
+  height:50px;
+  justify-content: left;
+  align-items: right;
+  gap: 0.25rem;
+}
+.calculate-divider {
+  min-width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  position: absolute;
+  left: 0%;
+  transform: translateY(-50%);
+  transform-origin: center;
+  z-index: 5;
+  animation: drawLine 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+@keyframes drawLine {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
 }
