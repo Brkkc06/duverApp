@@ -11,7 +11,7 @@ import { CalculateComponent } from './pages/calculate/calculate.component';
 import { CardModule } from 'primeng/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropdownModule } from 'primeng/dropdown';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent, NavbarComponent, CalculateComponent],
   imports: [
@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ToolbarModule,
     CardModule,
     DropdownModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   providers: [],

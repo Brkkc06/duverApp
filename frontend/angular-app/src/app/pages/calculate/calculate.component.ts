@@ -1,6 +1,11 @@
 // calculate.component.ts
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 interface Person {
   id: number;
@@ -23,26 +28,22 @@ interface Dessert {
   price: number;
 }
 interface CardModel {
-  id:number;
+  id: number;
   form: FormGroup;
-  personid?: number;
-  foodid?: number;
-  drinkid?: number; 
-  dessertid?: number;
-  qty: { food: number, drink: number, dessert: number };
-  total?: number;
-  amount?: number;
-  deleted?: boolean;
+  qty: { food: number; drink: number; dessert: number };
+  total: number;
 }
 
 @Component({
   selector: 'app-calculate',
   templateUrl: './calculate.component.html',
-  styleUrls: ['./calculate.component.scss'],
+  styleUrls: ['./calculate.component.scss']
 })
 export class CalculateComponent implements OnInit {
-  formGroup: FormGroup;
   cards: CardModel[] = [];
+  total = 0;
+  private cardNextId = 0;
+
   people: Person[] = [
     { id: 1, name: 'Ömer Can Korkmaz', username: 'omerkrkmz' },
     { id: 2, name: 'Mehmet Baran Turan', username: 'mehmetrn' },
@@ -55,6 +56,7 @@ export class CalculateComponent implements OnInit {
     { id: 9, name: 'Yağmur', username: 'yagmur' },
     { id: 10, name: 'Burak', username: 'brkkc' },
   ];
+
   foods: Food[] = [
     { id: 1, name: 'Mercimek Çorbası', price: 120 },
     { id: 2, name: 'Ezogelin Çorbası', price: 120 },
@@ -71,6 +73,7 @@ export class CalculateComponent implements OnInit {
     { id: 13, name: 'Kuşbaşılı Kaşarlı Pide', price: 480 },
     { id: 14, name: 'Karışık Pide', price: 410 },
   ];
+
   drinks: Drink[] = [
     { id: 1, name: 'Su', price: 20 },
     { id: 2, name: 'Ayran', price: 70 },
@@ -82,6 +85,7 @@ export class CalculateComponent implements OnInit {
     { id: 8, name: 'Şalgam', price: 40 },
     { id: 9, name: 'Sprite', price: 70 },
   ];
+
   desserts: Dessert[] = [
     { id: 1, name: 'Şöbiyet', price: 165 },
     { id: 2, name: 'Fıstıklı Baklava', price: 165 },
@@ -95,78 +99,90 @@ export class CalculateComponent implements OnInit {
     { id: 10, name: 'Dondurma', price: 50 },
   ];
 
-  // Adet takibi ve toplam için stub
-  qty = { food: 1, drink: 1, dessert: 1 };
-  total = 0;
-
-  constructor(private fb: FormBuilder) {
-    this.formGroup = this.fb.group({
-      person: [null, Validators.required],
-      food: [null, Validators.required],
-      drink: [null, Validators.required],
-      dessert: [null, Validators.required],
-      amount: [0, [Validators.required, Validators.min(0)]],
-    });
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    const form = this.fb.group({
-      person: [null, Validators.required],
-      food: [null, Validators.required],
-      drink: [null, Validators.required],
+    this.addCard();
+  }
+
+  trackById(_: number, card: CardModel): number {
+    return card.id;
+  }
+
+  getFoodControl(form: FormGroup): FormControl {
+    return form.get('food') as FormControl;
+  }
+  getDrinkControl(form: FormGroup): FormControl {
+    return form.get('drink') as FormControl;
+  }
+  getDessertControl(form: FormGroup): FormControl {
+    return form.get('dessert') as FormControl;
+  }
+
+  addCard(): void {
+    const fg = this.fb.group({
+      person:  [null, Validators.required],
+      food:    [null, Validators.required],
+      drink:   [null, Validators.required],
       dessert: [null, Validators.required],
-      qty: this.fb.group({
-        food: [1, [Validators.required, Validators.min(1)]],
-        drink: [1, [Validators.required, Validators.min(1)]],
-        dessert: [1, [Validators.required, Validators.min(1)]],
-      }), 
-      total: [0, [Validators.required, Validators.min(0)]],
-      amount: [null, [Validators.required, Validators.min(0)]],  
-    })
-    const firstCard: CardModel = {
-      id: 1, 
-      form: form,
+      amount:  [null, [Validators.required, Validators.min(0)]],
+    });
+    const card: CardModel = {
+      id: ++this.cardNextId,
+      form: fg,
       qty: { food: 1, drink: 1, dessert: 1 },
-      total: 0,
-      amount: 0,
-    }
-    this.cards.push(firstCard);
-  }
-
-  increaseQty(type: 'food' | 'drink' | 'dessert') {
-    this.qty[type]++;
-  }
-
-  decreaseQty(type: 'food' | 'drink' | 'dessert') {
-    if (this.qty[type] > 1) this.qty[type]--;
-  }
-
-  getLineTotal(type: 'food' | 'drink' | 'dessert'): number {
-    // İlerlemede: gerçek fiyat çarpımı yapılacak
-    return 0;
-  }
-
-  calculateTotal() {
-    // İlerlemede: toplam hesaplama mantığı eklenecek
-  }
-
-  save() {
-    // İlerlemede: kayıt işlemi eklenecek
-  }
-  addCard() {
-    const newCard: CardModel = {
-      id: this.cards.length + 1,
-      form: this.fb.group({
-        person: [null, Validators.required],
-        food: [null, Validators.required],
-        drink: [null, Validators.required],
-        dessert: [null, Validators.required],
-        total: [0, [Validators.required, Validators.min(0)]],
-        amount: [null, [Validators.required, Validators.min(0)]],
-      }),
-      qty: { food: 1, drink: 1, dessert: 1 },
-      amount: 0,
+      total: 0
     };
-    this.cards.push(newCard);
+    this.cards.push(card);
+    this.calculateCard(card);
+  }
+
+  removeCard(id: number): void {
+    if (this.cards.length === 1) return;
+    this.cards = this.cards.filter(c => c.id !== id);
+    this.calculateTotal();
+  }
+
+  increaseQty(type: 'food'|'drink'|'dessert', card: CardModel) {
+    card.qty[type]++;
+    this.calculateCard(card);
+  }
+
+  decreaseQty(type: 'food'|'drink'|'dessert', card: CardModel) {
+    if (card.qty[type] > 1) {
+      card.qty[type]--;
+      this.calculateCard(card);
+    }
+  }
+
+  public getLineTotal(type: 'food'|'drink'|'dessert', card: CardModel): number {
+    const id = card.form.get(type)?.value as number;
+    const list = type === 'food'   ? this.foods
+               : type === 'drink'  ? this.drinks
+               : this.desserts;
+    const price = list.find(i => i.id === id)?.price ?? 0;
+    return price * card.qty[type];
+  }
+
+  private updateCardTotal(card: CardModel): void {
+    const sumItems = 
+      this.getLineTotal('food', card) +
+      this.getLineTotal('drink', card) +
+      this.getLineTotal('dessert', card);
+    const tip = card.form.get('amount')?.value ?? 0;
+    card.total = sumItems + tip;
+  }
+
+  public calculateCard(card: CardModel): void {
+    this.updateCardTotal(card);
+    this.calculateTotal();
+  }
+
+  public calculateTotal(): void {
+    this.total = this.cards.reduce((acc, c) => acc + c.total, 0);
+  }
+
+  save(): void {
+    // kayıt işlemi
   }
 }

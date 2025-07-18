@@ -32,13 +32,6 @@
 }
 
 /* Başlık ile dropdown arası boşluk neredeyse sıfırlandı */
-.card-header {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0;
-  padding-top: 10px;
-}
 
 /* Kişi dropdown’u başlığa biraz daha yaklaştırıldı */
 .person-select {
@@ -179,6 +172,7 @@
   border: none;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 .plus-button {
   background-color: var(--btn-color);
@@ -187,6 +181,34 @@
   border: none;
   width: 30px;
   height: 30px;
+  cursor: pointer;
+}
+.card-header {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-left: 140px;
+  color: var(--text-color);
+}
+.card-remove-button {
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-color: var(--btn-color);
+  cursor:pointer;
+}
+.card-remove-div {
+  @media only screen and (max-width: 600px) {
+    padding-left: 70px;
+    color: var(--text-color);
+  }
+  padding-left: 115px;
+}
+.remove-card{
+  color: var(--text-color);
 }
 .price-output {
   max-width: 40px; /* veya 160-180px gibi istediğin kadar */
@@ -201,11 +223,13 @@
   outline: none;
   color: var(--text-color);
   padding: 0;
-  @media only  screen and (max-width: 600px) {
-    font-size: 0.75rem; /* Mobilde biraz daha büyük yazı */
-    text-align: center;
+  @media only screen and (max-width: 600px) {
+    font-size: 0.6rem; /* Mobilde biraz daha büyük yazı */
+    text-align: left;
   }
 }
+
+
 .tip-div {
   align-items: center;
   text-align: center;
@@ -231,11 +255,11 @@
   font-size: 50px;
   color: var(--text-color);
 }
-::ng-deep .calculate-bottom{
+::ng-deep .calculate-bottom {
   display: flex;
-  min-height: 7vh;
+  min-height: 14.8vh;
   background-color: var(--navbar-color);
-  height:50px;
+  height: 50px;
   justify-content: left;
   align-items: right;
   gap: 0.25rem;

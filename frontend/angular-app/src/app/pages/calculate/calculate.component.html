@@ -1,188 +1,230 @@
-<!-- calculate.component.html -->
 <div class="calculate-container">
-  <!-- Card container -->
-<div class="card-container" >
-  <div class="single-card-container" *ngFor="let card of cards; let i = index">
-<p-card class="calculate-card">
-    <!-- Başlık -->
-    <ng-template pTemplate="header">
-      <div class="card-header">Calculate</div>
-    </ng-template>
+  <!-- Kartlar -->
+  <div class="card-container">
+    <div
+      class="single-card-container"
+      *ngFor="let card of cards; trackBy: trackById"
+    >
+      <p-card class="calculate-card">
+        <!-- Başlık -->
+        <ng-template pTemplate="header">
+          <div class="card-header">
+            <span>Calculate</span>
+            <div class="card-remove-div">
+              <button
+                type="button"
+                class="card-remove-button"
+                (click)="removeCard(card.id)"
+              >
+                <i class="pi pi-minus remove-card"></i>
+              </button>
+            </div>
+          </div>
+        </ng-template>
 
-    <!-- Form başlangıcı -->
-    <form [formGroup]="card.form">
-      <!-- Kişi seçimi -->
-      <div class="person-select">
-        <p-dropdown
-          [options]="people"
-          formControlName="person"
-          optionLabel="name"
-          optionValue="id"
-          placeholder="Kişi Seçin"
-        ></p-dropdown>
-      </div>
-      <hr class="divider" />
+        <!-- Form -->
+        <form [formGroup]="card.form">
+          <!-- Kişi Seçimi -->
+          <div class="person-select">
+            <p-dropdown
+              [options]="people"
+              formControlName="person"
+              optionLabel="name"
+              optionValue="id"
+              placeholder="Kişi Seçin"
+              (onChange)="calculateCard(card)"
+            ></p-dropdown>
+          </div>
+          <hr class="divider" />
 
-      <!-- Ana grid: 5×3 -->
-      <div class="grid-main">
-        <!-- Yiyecek -->
-        <div>
-          <p-dropdown
-            [options]="foods"
-            formControlName="food"
-            optionLabel="name"
-            optionValue="id"
-            placeholder="Yiyecek Seçin"
-          ></p-dropdown>
-        </div>
-        <div class="qty-col">
-          <button type="button" class=" minus-button" (click)="decreaseQty('food')">
-            <i class="pi pi-minus"></i>
-          </button>
-          <span>{{ qty.food }}</span>
-          <button type="button" class="plus-button" (click)="increaseQty('food')">
-            <i class="pi pi-plus"></i>
-          </button>
-        </div>
-        <div>
-          <input
-            pInputText
-            type="text"
-            [value]="getLineTotal('food') | number:'1.2-2'"
-            readonly
-            placeholder="0.00"
-            class="price-output"
-          />
-        </div>
+          <!-- Sipariş Detayları -->
+          <div class="grid-main">
+            <!-- Yiyecek -->
+            <div>
+              <p-dropdown
+                [options]="foods"
+                [formControl]="getFoodControl(card.form)"
+                optionLabel="name"
+                optionValue="id"
+                placeholder="Yiyecek Seçin"
+                (onChange)="calculateCard(card)"
+              ></p-dropdown>
+            </div>
+            <div class="qty-col">
+              <button
+                type="button"
+                class="minus-button"
+                (click)="decreaseQty('food', card)"
+              >
+                <i class="pi pi-minus"></i>
+              </button>
+              <span>{{ card.qty.food }}</span>
+              <button
+                type="button"
+                class="plus-button"
+                (click)="increaseQty('food', card)"
+              >
+                <i class="pi pi-plus"></i>
+              </button>
+            </div>
+            <div>
+              <input
+                pInputText
+                type="text"
+                [value]="getLineTotal('food', card) | number : '1.2-2'"
+                readonly
+                placeholder="0.00"
+                class="price-output"
+              />
+            </div>
 
-        <!-- İçecek -->
-        <div>
-          <p-dropdown
-            [options]="drinks"
-            formControlName="drink"
-            optionLabel="name"
-            optionValue="id"
-            placeholder="İçecek Seçin"
-          ></p-dropdown>
-        </div>
-        <div class="qty-col">
-          <button type="button" class=" minus-button" (click)="decreaseQty('drink')">
-            <i class="pi pi-minus"></i>
-          </button>
-          <span>{{ qty.drink }}</span>
-          <button type="button" class=" plus-button" (click)="increaseQty('drink')">
-            <i class="pi pi-plus"></i>
-          </button>
-        </div>
-        <div>
-          <input
-            pInputText
-            type="text"
-            [value]="getLineTotal('drink') | number:'1.2-2'"
-            readonly
-            placeholder="0.00"
-            class="price-output"
-          />
-        </div>
+            <!-- İçecek -->
+            <div>
+              <p-dropdown
+                [options]="drinks"
+                [formControl]="getDrinkControl(card.form)"
+                optionLabel="name"
+                optionValue="id"
+                placeholder="İçecek Seçin"
+                (onChange)="calculateCard(card)"
+              ></p-dropdown>
+            </div>
+            <div class="qty-col">
+              <button
+                type="button"
+                class="minus-button"
+                (click)="decreaseQty('drink', card)"
+              >
+                <i class="pi pi-minus"></i>
+              </button>
+              <span>{{ card.qty.drink }}</span>
+              <button
+                type="button"
+                class="plus-button"
+                (click)="increaseQty('drink', card)"
+              >
+                <i class="pi pi-plus"></i>
+              </button>
+            </div>
+            <div class="price-output-div">
+              <input
+                pInputText
+                type="text"
+                [value]="getLineTotal('drink', card) | number : '1.2-2'"
+                readonly
+                placeholder="0.00"
+                class="price-output"
+              />
+            </div>
 
-        <!-- Tatlı -->
-        <div>
-          <p-dropdown
-            [options]="desserts"
-            formControlName="dessert"
-            optionLabel="name"
-            optionValue="id"
-            placeholder="Tatlı Seçin"
-          ></p-dropdown>
-        </div>
-        <div class="qty-col">
-          <button type="button" class=" minus-button" (click)="decreaseQty('dessert')">
-            <i class="pi pi-minus"></i>
-          </button>
-          <span>{{ qty.dessert }}</span>
-          <button type="button" class=" plus-button" (click)="increaseQty('dessert')">
-            <i class="pi pi-plus"></i>
-          </button>
-        </div>
-        <div>
-          <input
-            pInputText
-            type="text"
-            [value]="getLineTotal('dessert') | number:'1.2-2'"
-            readonly
-            placeholder="0.00"
-            class="price-output"
-          />
-        </div>
+            <!-- Tatlı -->
+            <div>
+              <p-dropdown
+                [options]="desserts"
+                [formControl]="getDessertControl(card.form)"
+                optionLabel="name"
+                optionValue="id"
+                placeholder="Tatlı Seçin"
+                (onChange)="calculateCard(card)"
+              ></p-dropdown>
+            </div>
+            <div class="qty-col">
+              <button
+                type="button"
+                class="minus-button"
+                (click)="decreaseQty('dessert', card)"
+              >
+                <i class="pi pi-minus"></i>
+              </button>
+              <span>{{ card.qty.dessert }}</span>
+              <button
+                type="button"
+                class="plus-button"
+                (click)="increaseQty('dessert', card)"
+              >
+                <i class="pi pi-plus"></i>
+              </button>
+            </div>
+            <div class="price-output-div">
+              <input
+                pInputText
+                type="text"
+                [value]="getLineTotal('dessert', card) | number : '1.2-2'"
+                readonly
+                placeholder="0.00"
+                class="price-output"
+              />
+            </div>
 
-        <!-- Bahşiş -->
-        <div class="label-col tip-div"><span>Bahşiş:</span></div>
-        <div class="input-div">
-          <input
-            pInputText
-            type="number"
-            formControlName="amount"
-            placeholder="Miktar"
-            class="p-inputtext"
-            min="0"
-            step="5"
-            inputmode="numeric"
-            autocomplete="off"
-            maxlength="3"
-            
-          />
-        </div>
-        <div>
-          <input
-            pInputText
-            type="text"
-            [value]="formGroup.value.amount | number:'1.2-2'"
-            readonly
-            placeholder="0.00"
-            class="price-output"
-          />
-        </div>
+            <!-- Bahşiş -->
+            <div class="label-col tip-div"><span>Bahşiş:</span></div>
+            <div class="input-div">
+              <input
+                pInputText
+                type="number"
+                formControlName="amount"
+                placeholder="Miktar"
+                class="p-inputtext"
+                min="0"
+                step="5"
+                inputmode="numeric"
+                autocomplete="off"
+                maxlength="3"
+                (input)="calculateCard(card)"
+              />
+            </div>
+            <div>
+              <input
+                pInputText
+                type="text"
+                [value]="card.form.value.amount | number : '1.2-2'"
+                readonly
+                placeholder="0.00"
+                class="price-output"
+              />
+            </div>
+          </div>
+        </form>
 
-        <!-- Hesapla butonu -->
-        <div></div>
-        <div class="btn-calc-col">
-          <button type="button" pButton label="Hesapla" class="p-button-success" (click)="calculateTotal()"></button>
+        <hr class="divider divider-after-calc" />
+
+        <!-- Kart Sonuç -->
+        <div class="grid-footer">
+          <div>
+            <span pTooltip="Coming Soon" tooltipPosition="bottom">
+              <button pButton label="Kaydet" class="p-button-primary w-full" disabled></button>
+            </span>
+          </div>
+          <div class="footer-center">
+            <strong>TOPLAM:</strong>
+            <div class="footer-right">
+              <span>{{ card.total | number : '1.2-2' }}</span><span class="currency">₺</span>
+            </div>
+          </div>
         </div>
-        <div></div>
-      </div>
-    </form>
-
-    <!-- Hesapla’dan sonra çizgi -->
-    <hr class="divider divider-after-calc" />
-
-    <!-- Alt footer -->
-    <div class="grid-footer">
-      <div>
-        <span pTooltip="Coming Soon" tooltipPosition="bottom">
-        <button pButton label="Kaydet" class="p-button-primary w-full" style="cursor:not-allowed; background-color: var(--btn-color); color: var(--text-color);" (click)="save()"></button>
-        </span>
-      </div>
-      <div class="footer-center"><strong>TOPLAM:</strong>
-      <div class="footer-right"><span>{{ total | number:'1.2-2' }} </span><span class="currency">₺</span></div></div>
-      
+      </p-card>
     </div>
-  </p-card>
-  </div>
-  <div class="add-card-div">
-   <p-button icon="pi pi-plus" class="add-card-button" (click)="addCard()"></p-button>
+
+    <!-- Yeni Kart -->
+    <div class="add-card-div">
+      <p-button icon="pi pi-plus" class="add-card-button" (click)="addCard()"></p-button>
+    </div>
   </div>
 </div>
-</div>
+
+<!-- Genel Toplam -->
 <div class="calculate-divider"></div>
 <div class="calculate-bottom">
-  <span class="total-header" style="display: flex; align-items: center; text-align: center; height: 40px;">Toplam Tutar:</span>
+  <span class="total-header" style="display:flex;align-items:center;height:40px">
+    Toplam Tutar:
+  </span>
   <input
     pInputText
     type="text"
-    [value]="total | number:'1.2-2'"
+    [value]="total | number : '1.2-2'"
     readonly
     placeholder="0.00"
-    class="price-output total-price"/>
-  <span class="currency" style="display: flex; text-align: center; height: 40px; align-items: center;">₺</span>
+    class="price-output total-price"
+  />
+  <span class="currency" style="display:flex;align-items:center;height:40px">₺</span>
 </div>
-
