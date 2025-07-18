@@ -1,4 +1,3 @@
-// calculate.component.ts
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -182,22 +181,22 @@ export class CalculateComponent implements OnInit {
   }
 
   public calculateTotal(): void {
-    // Kart bazlı total güncellemesi
+    
     this.cards.forEach(c => this.updateCardTotal(c));
 
-    // Genel toplam
+    
     this.total = this.cards.reduce((acc, c) => acc + c.total, 0);
 
-    // Toplam bahşiş
+    
     this.totalTip = this.cards.reduce(
       (sum, c) => sum + (c.form.get('amount')?.value ?? 0),
       0
     );
 
-    // Bahşiş yüzdesi
+   
     this.tipPercentage = this.total > 0 ? (this.totalTip / this.total) * 100 : 0;
 
-    // Kart özetleri (kişiye göre)
+    
     this.cardSummaries = this.cards.map(c => {
       const pid = c.form.get('person')?.value;
       const pname = this.people.find(p => p.id === pid)?.name || '';
@@ -206,6 +205,6 @@ export class CalculateComponent implements OnInit {
   }
 
   save(): void {
-    // kayıt işlemi
+   
   }
 }

@@ -1,12 +1,12 @@
 <div class="calculate-container">
-  <!-- Kartlar -->
+
   <div class="card-container">
     <div
       class="single-card-container"
       *ngFor="let card of cards; trackBy: trackById"
     >
       <p-card class="calculate-card">
-        <!-- Başlık -->
+       
         <ng-template pTemplate="header">
           <div class="card-header">
             <span>Calculate</span>
@@ -22,9 +22,9 @@
           </div>
         </ng-template>
 
-        <!-- Form -->
+       
         <form [formGroup]="card.form">
-          <!-- Kişi Seçimi -->
+         
           <div class="person-select">
             <p-dropdown
               [options]="people"
@@ -37,9 +37,9 @@
           </div>
           <hr class="divider" />
 
-          <!-- Sipariş Detayları -->
+          
           <div class="grid-main">
-            <!-- Yiyecek -->
+         
             <div>
               <p-dropdown
                 [options]="foods"
@@ -78,7 +78,7 @@
               />
             </div>
 
-            <!-- İçecek -->
+            
             <div>
               <p-dropdown
                 [options]="drinks"
@@ -117,7 +117,7 @@
               />
             </div>
 
-            <!-- Tatlı -->
+           
             <div>
               <p-dropdown
                 [options]="desserts"
@@ -156,7 +156,7 @@
               />
             </div>
 
-            <!-- Bahşiş -->
+           
             <div class="label-col tip-div"><span>Bahşiş:</span></div>
             <div class="input-div">
               <input
@@ -188,7 +188,7 @@
 
         <hr class="divider divider-after-calc" />
 
-        <!-- Kart Sonuç -->
+        
         <div class="grid-footer">
           <div>
             <span pTooltip="Coming Soon" tooltipPosition="bottom">
@@ -205,15 +205,14 @@
       </p-card>
     </div>
 
-    <!-- Yeni Kart -->
+    
     <div class="add-card-div">
       <p-button icon="pi pi-plus" class="add-card-button" (click)="addCard()"></p-button>
     </div>
   </div>
 </div>
 <div class="calculate-divider"></div>
-<!-- Genel Toplam -->
-  <!-- Kişi Bazlı Özet -->
+
 <div class="summary-container">
   <div *ngFor="let s of cardSummaries" class="summary-line" style="font-weight: 300;">
     {{ s.name }} - {{ s.total | number:'1.2-2' }} ₺

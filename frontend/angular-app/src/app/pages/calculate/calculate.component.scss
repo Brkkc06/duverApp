@@ -31,16 +31,14 @@
   max-width: 400px;
 }
 
-/* Başlık ile dropdown arası boşluk neredeyse sıfırlandı */
 
-/* Kişi dropdown’u başlığa biraz daha yaklaştırıldı */
 .person-select {
   display: flex;
   justify-content: center;
   padding-bottom: 10px;
 }
 
-/* Genel çizgi (hr) */
+
 .divider {
   border: none;
   border-top: 1px solid #555;
@@ -48,13 +46,13 @@
   padding-bottom: 10px;
 }
 
-/* Hesapla’dan sonra ekstra boşluklu çizgi */
+
 .divider-after-calc {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
 
-/* Ana grid: 5×3 düzen */
+
 .grid-main {
   position: relative;
   display: grid;
@@ -62,24 +60,24 @@
   column-gap: 0.5rem;
   row-gap: 0.75rem;
 
-  /* Tek parça dikey çizgi: biraz daha sağa kaydırıldı */
+  
   &::before {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    left: calc(120px + 0.75rem); /* <-- burayı değiştirerek kaydırdık */
+    left: calc(120px + 0.75rem); 
     width: 1px;
     background: #555;
   }
 
-  /* Dropdown genişlikleri eşitlendi */
+  
   p-dropdown {
     width: 120px !important;
     display: block;
   }
 
-  /* -/+ butonları ortalandı ve boyut değişmedi */
+  
   .qty-col {
     display: flex;
     align-items: center;
@@ -94,7 +92,7 @@
     }
   }
 
-  /* “Ücreti” hücrelerini sağa yasla */
+  
   > div:nth-child(3n) {
     display: flex;
     justify-content: flex-end;
@@ -102,21 +100,21 @@
   }
 }
 
-/* Bahşiş inputu biraz daha uzun */
+
 .grid-main input.p-inputtext {
-  width: 105px; /* <-- burayı 90px’den 110px’e çıkardık */
+  width: 105px; 
   text-align: center;
 }
 .input-div {
   padding-left: 20px;
 }
-/* “Hesapla” butonunu hücresinde daha sağa yasla */
+
 .btn-calc-col {
   display: flex;
   justify-content: flex-end;
 }
 
-/* Alt footer düzeni */
+
 .grid-footer {
   display: grid;
   grid-template-columns: 1fr;
@@ -211,7 +209,7 @@
   color: var(--text-color);
 }
 .price-output {
-  max-width: 40px; /* veya 160-180px gibi istediğin kadar */
+  max-width: 40px; 
   max-height: 40px;
   text-align: left;
   font-size: 1rem;
@@ -224,7 +222,7 @@
   color: var(--text-color);
   padding: 0;
   @media only screen and (max-width: 600px) {
-    font-size: 0.6rem; /* Mobilde biraz daha büyük yazı */
+    font-size: 0.6rem; 
     text-align: left;
   }
 }
@@ -289,9 +287,7 @@
   background-color: var(--bg-color);
 }
 
-/* … (mevcut tüm kurallarınız aynen burada) … */
 
-/* Animasyon: Kartlar sayfaya fadeInUp ile girsin */
 .single-card-container {
   animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -307,7 +303,6 @@
   }
 }
 
-/* Kişi bazlı özet stilleri */
 .summary-container {
   margin: 0 0 0 0;
   padding: 0.5rem;
@@ -329,6 +324,4 @@
     font-weight: bold;
   }
 }
-
-/* … (sonrasında kalan tüm SCSS kodunuz aynen devam eder) … */
 
